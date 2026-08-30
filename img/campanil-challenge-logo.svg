@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+
+  <!-- The Campanil (acting as letter 'I') -->
+  <g transform="translate(400, 200) scale(0.5)">
+    <!-- Lower Body -->
+    <rect x="340" y="480" width="60" height="120" fill="#ffffff" />
+    <rect x="400" y="480" width="60" height="120" fill="#e0e0e0" />
+
+    <!-- Balcony Base Support -->
+    <polygon points="340,465 400,465 400,480 360,480" fill="#f0f0f0" />
+    <polygon points="400,465 460,465 430,480 400,480" fill="#d0d0d0" />
+
+    <!-- Balcony Railing / Ledge -->
+    <rect x="320" y="450" width="80" height="15" fill="#ffffff" />
+    <rect x="400" y="450" width="80" height="15" fill="#e0e0e0" />
+
+    <!-- Arches Section Wall -->
+    <rect x="340" y="360" width="60" height="90" fill="#ffffff" />
+    <rect x="400" y="360" width="60" height="90" fill="#e0e0e0" />
+
+    <!-- The 3 Arches -->
+    <path d="M348,450 L348,395 A14,14 0 0 1 376,395 L376,450 Z" fill="#223C6A" />
+    <path d="M386,450 L386,395 A14,14 0 0 1 414,395 L414,450 Z" fill="#223C6A" />
+    <path d="M424,450 L424,395 A14,14 0 0 1 452,395 L452,450 Z" fill="#223C6A" />
+
+    <!-- Speakers -->
+    <circle cx="362" cy="415" r="7" fill="#111111" stroke="#888888" stroke-width="2" />
+    <circle cx="400" cy="415" r="7" fill="#111111" stroke="#888888" stroke-width="2" />
+    <circle cx="438" cy="415" r="7" fill="#111111" stroke="#888888" stroke-width="2" />
+
+    <!-- Ledge above arches -->
+    <rect x="335" y="350" width="65" height="10" fill="#f0f0f0" />
+    <rect x="400" y="350" width="65" height="10" fill="#d0d0d0" />
+
+    <!-- Clock Section Wall -->
+    <rect x="340" y="235" width="60" height="115" fill="#ffffff" />
+    <rect x="400" y="235" width="60" height="115" fill="#e0e0e0" />
+
+    <!-- Pilasters -->
+    <rect x="342" y="235" width="6" height="115" fill="#f0f0f0" />
+    <rect x="452" y="235" width="6" height="115" fill="#d0d0d0" />
+
+    <!-- Clock Outer Rim -->
+    <path d="M400,243 A50,50 0 0 0 400,343 Z" fill="#a0a0a0" />
+    <path d="M400,243 A50,50 0 0 1 400,343 Z" fill="#808080" />
+
+    <!-- Clock Inner Face -->
+    <path d="M400,250 A43,43 0 0 0 400,336 Z" fill="#ffffff" />
+    <path d="M400,250 A43,43 0 0 1 400,336 Z" fill="#f5f5f5" />
+
+    <!-- Clock Ticks -->
+    <line x1="400" y1="255" x2="400" y2="265" stroke="#223C6A" stroke-width="3" />
+    <line x1="400" y1="321" x2="400" y2="331" stroke="#223C6A" stroke-width="3" />
+    <line x1="362" y1="293" x2="372" y2="293" stroke="#223C6A" stroke-width="3" />
+    <line x1="428" y1="293" x2="438" y2="293" stroke="#223C6A" stroke-width="3" />
+
+    <!-- Clock Hands -->
+    <line x1="400" y1="293" x2="415" y2="260" stroke="#D21428" stroke-width="4" stroke-linecap="round" />
+    <line x1="400" y1="293" x2="385" y2="285" stroke="#E69B0A" stroke-width="5" stroke-linecap="round" />
+    <circle cx="400" cy="293" r="4" fill="#223C6A" />
+
+    <!-- Ledge above Clock -->
+    <rect x="330" y="225" width="70" height="10" fill="#ffffff" />
+    <rect x="400" y="225" width="70" height="10" fill="#e0e0e0" />
+
+    <!-- Roof Core -->
+    <rect x="350" y="148" width="50" height="77" fill="#404040" />
+    <rect x="400" y="148" width="50" height="77" fill="#2b2b2b" />
+
+    <!-- Louvers -->
+    <rect x="335" y="200" width="65" height="15" fill="#f0f0f0" />
+    <rect x="400" y="200" width="65" height="15" fill="#d0d0d0" />
+    <rect x="345" y="178" width="55" height="12" fill="#f0f0f0" />
+    <rect x="400" y="178" width="55" height="12" fill="#d0d0d0" />
+    <rect x="355" y="156" width="45" height="12" fill="#f0f0f0" />
+    <rect x="400" y="156" width="45" height="12" fill="#d0d0d0" />
+
+    <!-- Pyramid Base -->
+    <rect x="363" y="138" width="37" height="10" fill="#f0f0f0" />
+    <rect x="400" y="138" width="37" height="10" fill="#d0d0d0" />
+
+    <!-- Pyramid Tip -->
+    <polygon points="363,138 400,138 400,100" fill="#ffffff" />
+    <polygon points="400,138 437,138 400,100" fill="#e0e0e0" />
+
+    <!-- Antenna -->
+    <line x1="400" y1="100" x2="400" y2="40" stroke="#d0d0d0" stroke-width="2" />
+  </g>
+
+  <!-- Typography: CAMPANIL (with Campanil as 'I') -->
+  <text font-family="'Montserrat', 'Arial Black', sans-serif" font-size="90" font-weight="900" fill="#ffffff" text-anchor="middle" y="500">
+    <tspan x="120">C</tspan>
+    <tspan x="195">A</tspan>
+    <tspan x="280">M</tspan>
+    <tspan x="365">P</tspan>
+    <tspan x="445">A</tspan>
+    <tspan x="525">N</tspan>
+    <!-- Campanil is placed at x=600 -->
+    <tspan x="675">L</tspan>
+  </text>
+  
+  <!-- "CHALLENGE" -->
+  <text x="400" y="580" font-family="'Montserrat', 'Arial', sans-serif" font-size="40" font-weight="bold" fill="#E69B0A" text-anchor="middle" letter-spacing="22">CHALLENGE</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="640" font-family="'Arial', sans-serif" font-size="16" font-weight="bold" fill="#A0A0A0" text-anchor="middle" letter-spacing="2">IEEE RAS • UNIVERSIDAD DE CONCEPCIÓN</text>
+
+</svg>
