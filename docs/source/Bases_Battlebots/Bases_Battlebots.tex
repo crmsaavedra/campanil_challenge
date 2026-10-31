@@ -1,0 +1,102 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{tikz}
+\geometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}
+
+\begin{document}
+\begin{center}
+\includegraphics[width=0.4\textwidth]{LOGO_RAS.png} \\
+\vspace{1cm}
+{\LARGE \textbf{Bases de Competencia: Battlebots}} \\
+\vspace{0.5cm}
+{\large \textbf{Universidad de Concepción - RAS UdeC}} \\
+{\large \textbf{4 de diciembre de 2026}} \\
+\end{center}
+\vspace{1cm}
+
+\section*{Objetivo de la Competencia}
+La competencia es un torneo de eliminación simple en modalidad 1 vs 1. En cada combate, 2 robots entran a la arena de combate y el que logre incapacitar o desarmar al robot oponente gana. En caso de empate o ambigüedad, el comité jurado decidirá el ganador.
+
+\section*{Equipos y Participantes}
+Los equipos deben estar conformados por un máximo de \textbf{3 participantes} (2 a 3 personas). Cada equipo debe nombrar un/a Capitán/a. Ningún participante puede pertenecer a más de un equipo. El torneo de Battlebots estará limitado a un cupo máximo de \textbf{16 equipos}.
+
+\section*{Inscripción}
+Las inscripciones estarán abiertas hasta el \textbf{22 de noviembre a las 23:59 hrs}. 
+
+La inscripción y la participación son gratuitas. No se requiere pago ni comprobante.
+
+\section*{Normas de Construcción y Restricciones del Robot}
+\begin{itemize}
+    \item El robot debe tener unas dimensiones máximas de 30x30x30 cm.
+    \item El robot no debe pesar más de 5.4 kg.
+    \item Los robots deben ser terrestres y controlados vía inalámbrica.
+    \item Los equipos solo pueden competir con un robot diseñado por ellos mismos.
+    \item Las baterías deben estar bien protegidas para mantener la seguridad de los asistentes y del propio equipo.
+    \item Los robots solo pueden causar daño mecánico y deben poseer como mínimo un arma o método de ataque activo.
+    \item El robot debe contar con un `failsafe'' o sistema equivalente que lo detenga automáticamente cuando pierda la señal de control.
+\end{itemize}
+
+\textbf{El robot puede contar con:}
+\begin{itemize}
+    \item Sensores infrarrojos, ultrasónicos o similares para detectar al oponente.
+    \item Elementos que se desplieguen y cuenten con un sistema de retracción.
+    \item Muelles o resortes, siempre y cuando su accionar sea de manera remota bajo la energía del robot.
+    \item Elementos de movilidad rodantes, caminantes o de arrastre.
+\end{itemize}
+
+\textbf{El robot NO puede portar:}
+\begin{itemize}
+    \item Ácidos, aceites, agua o cualquier otra sustancia como arma que ponga en peligro a las personas o la pista.
+    \item Pirotecnia o elementos explosivos.
+    \item Elementos con filo expuesto (como cuchillas sueltas o sierras de madera).
+    \item Dispositivos que generen pulsos electromagnéticos (PEM) o que alteren intencionalmente señales de radiofrecuencia.
+    \item Armas eléctricas, es decir, armas diseñadas para dañar eléctricamente al otro robot (ej: tasers).
+    \item Luces encandilantes que afecten la visibilidad de los presentes.
+\end{itemize}
+
+\section*{Protocolo de Combate}
+\begin{itemize}
+    \item Se otorgará a los equipos un periodo de \textbf{20 minutos} para reparaciones entre combates. No se permiten modificaciones de gran escala que alteren la estructura principal del robot (ej: cambio drástico de arma o diseño).
+    \item Después de cada combate, el equipo técnico revisará el estado de la batería para comprobar si presenta algún defecto y evitar riesgos.
+    \item El jurado estará conformado por miembros del comité organizador (RAS UdeC), encargados de emitir el veredicto en situaciones donde el nivel de daño no permita una decisión clara, valorando también el diseño y la complejidad.
+\end{itemize}
+
+\section*{Área de Competencia (Cuadrilátero)}
+De acuerdo al diseño presupuestado, la arena de combate tendrá unas dimensiones de \textbf{1.22 x 1.22 m}. 
+Su construcción cuenta con una base de plancha OSB sólida. La estructura perimetral está sostenida por pilares de pino cepillado y ángulos de refuerzo de metal, sellada en todos sus lados por capas de Malla Acma y Malla Harnero, garantizando la seguridad absoluta de los espectadores.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.5]
+    % Base (OSB)
+    \draw[fill=orange!30, thick] (0,0) -- (4,0) -- (5,1.5) -- (1,1.5) -- cycle;
+    \node at (2.5, 0.75) {Base OSB LP (1.22 x 1.22 m)};
+    
+    % Pillars (Pino)
+    \draw[thick, fill=brown] (0,0) rectangle (0.1, 2);
+    \draw[thick, fill=brown] (4,0) rectangle (4.1, 2);
+    \draw[thick, fill=brown] (5,1.5) rectangle (5.1, 3.5);
+    \draw[thick, fill=brown] (1,1.5) rectangle (1.1, 3.5);
+    
+    % Top frame (Pino)
+    \draw[thick, fill=brown] (0.1,1.9) -- (4,1.9) -- (4,2) -- (0.1,2) -- cycle;
+    
+    % Mesh (Malla)
+    \draw[step=0.2, gray, very thin] (0.1,0) grid (4,1.9);
+    \draw[step=0.2, gray, very thin, xslant=0.5] (4.1,0) grid (5,2.7);
+    
+    % Labels
+    \node[anchor=west] at (5.2, 2.5) {Malla Acma / Harnero};
+    \node[anchor=west] at (5.2, 1.5) {Estructura Pino cepillado};
+    \node[anchor=east] at (-0.2, 0) {Ángulos metálicos};
+\end{tikzpicture}
+\caption{Esquema referencial de la arena de combate Battlebots.}
+\end{figure}
+
+\vspace{1cm}
+\noindent El equipo organizador se reserva el derecho a modificar las bases y reglas de la competencia de ser necesario, lo cual será informado pertinentemente a todos los equipos inscritos.
+\end{document}

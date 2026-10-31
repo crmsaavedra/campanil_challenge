@@ -1,0 +1,137 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2cm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+\title{Campanil Challenge: Sumo Bot Open 2026}
+\author{}
+\date{4 de diciembre de 2026}
+
+\begin{document}
+
+\maketitle
+
+\section*{Sumo -- Reglas generales}
+
+En general, estas reglas están pensadas para uno de los siguientes tres escenarios de competición:
+\begin{itemize}
+    \item robots totalmente autónomos
+        \end{itemize}
+
+\section{Información General}
+Este documento describe las reglas y regulaciones para la competencia Sumo de la Olimpiada Mundial de Robótica y el Campanil Challenge. Estas reglas son creadas y aplicadas por los organizadores del evento para garantizar el juego limpio y la seguridad de todos los participantes.
+\par
+La competencia está abierta a robots que compiten para impulsarse entre sí fuera de un campo de juego circular. Esta categoría es Open (abierta a todo público), sin restricción de pertenencia a un colegio o universidad. La inscripción y la participación son gratuitas. Las inscripciones cierran el 22 de noviembre de 2026 a las 23:59 hrs.
+\par
+Está prohibido dañar al robot oponente.
+\par
+El aprendizaje es lo más importante. Se busca inspirar a estudiantes de todo el mundo en materias relacionadas con STEM y que desarrollen sus habilidades a través del aprendizaje lúdico en nuestras competencias. Por eso, los siguientes aspectos son clave para todos nuestros programas de competencia:
+\begin{itemize}
+    \item Los entrenadores, padres u otros adultos pueden ayudar, guiar e inspirar al equipo, pero no pueden construir ni programar el robot.
+    \item Los equipos, entrenadores y jueces aceptan nuestros Principios Rectores y el Código de Ética de la competencia, que deben informarnos sobre una competencia justa y enriquecedora.
+    \item El día de la competencia, los equipos y entrenadores respetan la decisión final de los jueces y colaboran con otros equipos y jueces para una competencia justa.
+\end{itemize}
+
+\section{Definición de equipo}
+2.1. Un equipo está formado por uno, dos o máximo 3 participantes. \\
+2.2. Un equipo puede contar con un entrenador o persona de apoyo. \\
+2.3. Cada participante solo puede participar en un equipo. \\
+2.5. Los entrenadores pueden trabajar con más de un equipo.
+
+\section{Responsabilidades y trabajo propio del equipo}
+3.1. Un equipo debe jugar limpio y ser respetuoso con los demás equipos, entrenadores, jueces y organizadores de la competición. \\
+3.2. La construcción y codificación del robot solo pueden ser realizadas por los miembros del equipo. La función del entrenador es acompañar al equipo en la organización y brindarle apoyo previo en caso de preguntas o problemas, pero no realizar la construcción ni la programación del robot. Esto aplica tanto el día de la competición como durante la preparación. \\
+3.3. Un equipo no puede comunicarse de ninguna manera con personas fuera del área de competición durante el desarrollo de la misma. Si la comunicación es necesaria, un juez puede permitir que los miembros del equipo se comuniquen con otros bajo su supervisión. \\
+3.4. Si se infringe o viola alguna de las reglas mencionadas en este documento, los jueces pueden decidir sobre una o más de las siguientes consecuencias. Previamente, se puede entrevistar a un equipo o a sus miembros individualmente para obtener más información sobre la posible infracción de las reglas. Esto puede incluir preguntas sobre el robot o el programa. Los miembros del equipo deben ser capaces de explicar el robot y el software en su totalidad, incluyendo subprogramas y bloques reutilizables.
+\begin{itemize}
+    \item[3.4.1.] Un equipo podrá recibir una penalización de tiempo de un máximo de 15 minutos. Durante este tiempo, no podrá realizar ningún cambio en su robot ni en su programa.
+    \item[3.4.2.] Un equipo no podrá participar en una o más rondas.
+    \item[3.4.3.] Un equipo podría no clasificarse para la siguiente ronda del torneo (por ejemplo, en un formato de torneo con los 16 mejores, los 8 mejores, etc.).
+    \item[3.4.4.] Un equipo podría no clasificarse para la final nacional.
+    \item[3.4.5.] Un equipo podría ser descalificado completamente del torneo inmediatamente.
+\end{itemize}
+
+\section{Materiales y normativas del robot}
+4.1. Cada equipo construye un robot para resolver los desafíos en el campo. Las dimensiones máximas del robot antes de que comience a correr son de 250 mm x 250 mm x 250 mm. Los cables deben incluirse en estas dimensiones. Una vez que el robot haya comenzado, las dimensiones del robot no están restringidas. \\
+4.2. Los equipos pueden utilizar cualquier material y componente para construir el robot, siempre que se cumplan los siguientes criterios:
+
+\vspace{0.5cm}
+\noindent
+\textbf{Peso máximo del robot}: 1 Kilo
+
+\textbf{Batería}: $\leq$ 6.000 mAh 
+
+ Cuando se utilicen baterías, los equipos deberán cumplir las instrucciones de uso del fabricante y no utilizar las baterías fuera de las especificaciones del fabricante.
+
+\textbf{Corriente / Amperaje}: $\leq$ 4 A
+
+\textbf{Botón de inicio y parada}: Se necesita un (1) botón claramente reconocible para iniciar y detener el robot. Esto significa que el mismo botón que se utiliza para iniciar el robot también lo detiene. El botón debe colocarse en la parte exterior del robot (no debajo) y debe ser fácilmente identificable y accesible. Se prefiere un botón físico a uno en una pantalla táctil. Cuando se pulsa el botón durante la ejecución, todos los movimientos deben detenerse inmediatamente. 
+
+ \textbf{Excepción:} el botón de parada independiente del EV3 también se puede utilizar para detener un programa.
+
+\textbf{Motores}: $\leq$ 12 Voltios 
+
+ No hay limitaciones en cuanto al tipo de motores. Los motores que se encuentran dentro de otros componentes, como sensores (por ejemplo, un LIDAR 2D), ventiladores, bombas o compresores, se cuentan como motores. 
+
+ El máximo de motores: 4 motores en total
+
+\textbf{Ruedas y orugas}: Se puede utilizar cualquier tipo de ruedas (incluidas las ruedas omnidireccionales) o orugas. El contacto con la alfombra debe ser tal que esta no resulte dañada. En particular, deben evitarse las superficies de contacto puntiagudas y metálicas. Las ruedas no pueden dejar material pegajoso en el campo.
+
+\textbf{Electroimanes y solenoides}: Se pueden utilizar electroimanes. Si solo se utilizan para fijar piezas mediante magnetismo, no se consideran motores. Se pueden considerar motores en caso de que se utilicen como motores lineales. Se pueden utilizar solenoides con una fuerza máxima de 20 N y un rango de movimiento máximo de 20 mm (ambos según la descripción del fabricante) y se considerarán motores. No se permiten solenoides que superen estos límites.
+
+\textbf{Componentes mecánicos (riesgo de lesiones)}: Los componentes mecánicos deben estar diseñados de tal manera que no supongan un riesgo de lesiones. Los robots que supongan un riesgo de lesiones deben modificarse a petición de los jueces sin discusión o serán excluidos de la competencia.
+
+\textbf{Componentes eléctricos y electrónicos (riesgo de lesiones)}: Los componentes eléctricos y electrónicos deben estar diseñados de tal manera que no supongan un riesgo de lesiones. Los robots que supongan un riesgo de lesiones serán excluidos de la competencia. Solo se permite la modificación si no existe riesgo de lesiones para el equipo
+
+\textbf{Sistemas neumáticos}: Se pueden utilizar sistemas neumáticos. El robot puede llenarlos él mismo después del inicio o se pueden llenar a mano antes del inicio. La presión máxima no debe superar los 3 bar. Si el sistema está especificado para una presión inferior, la especificación es el límite superior. El volumen máximo de los depósitos del sistema es de 150 ml. Solo el compresor del sistema neumático se considera un motor
+
+\textbf{Sistemas hidráulicos}: No se permiten los sistemas hidráulicos
+
+\textbf{Materiales frágiles}: No está permitido utilizar materiales que se rompan fácilmente en muchos pedazos o que dejen bordes peligrosos después de romperse, como el vidrio
+
+\textbf{Materiales impresos en 3D}: Se pueden utilizar materiales y piezas impresos en 3D. No se permite la impresión en 3D durante la competencia.
+
+
+\vspace{0.5cm}
+
+\noindent
+4.3. Se permite cualquier software para codificar el robot y los equipos pueden preparar el código antes del día de la competencia. El Bluetooth, el Wi-Fi o cualquier conexión remota deben estar desactivados durante el tiempo de comprobación y el funcionamiento del robot. Si hay alguna duda al respecto, el equipo debe poder demostrar que la transmisión inalámbrica ha sido desactivada y cómo se ha hecho. Si el equipo no puede hacerlo, se asumirá que la transmisión inalámbrica no ha sido desactivada. \\
+4.4. Cada equipo deberá preparar y traer todo el equipo, suficientes repuestos, software y una computadora portátil (u otro dispositivo de programación) que necesite durante el torneo. Una computadora portátil de repuesto podrá quedarse con el entrenador y podrá intercambiarse, si es necesario, bajo la supervisión de los jueces. Los equipos no podrán compartir una computadora portátil ni el programa de un robot el día de la competición. El organizador de la competición no se responsabiliza del mantenimiento ni de la sustitución de ningún material, ni siquiera en caso de accidentes o fallos de funcionamiento. \\
+4.5. Un equipo solo puede traer y utilizar un robot completo que contenga su(s) controlador(es) durante toda la competencia. El equipo puede llevar controladores y piezas de repuesto al área de competencia. No está permitido llevar un chasis de repuesto completo. Un chasis se define como un conjunto con mecanismos motorizados, sensores y un eje de transmisión listo para ser accionado por el controlador o controladores. Como regla general: un equipo puede llevar todas las piezas necesarias para reparar su robot si algo se rompe, pero no está permitido llevar nada que ofrezca la posibilidad de sustituir el robot (completo). \\
+4.6. Un robot debe ser autónomo. \\
+4.7. El robot podrá marcarse (con etiquetas, cintas, minibanderas, etc.) para evitar que los participantes lo pierdan o lo confundan con los robots de los otros equipos, siempre que esto no altere su rendimiento ni dé ninguna otra pista. \\
+4.8. Si un robot intenta dañar a su oponente, será excluido de la competición.
+
+\section{Resumen técnico del robot.}
+5.1. Los equipos deben traer un resumen técnico completo de su robot en papel. El resumen debe reflejar el robot real. Además, se puede pedir a los equipos que lo suban poco antes de la competencia. \\
+5.2. El resumen no puede tener más de dos (2) páginas en formato A4 o tamaño carta. \\
+5.3. Se pueden otorgar puntos por traer el resumen cumplimentado, o bien el resumen puede ser una parte obligatoria de la competencia. Los puntos no deben superar los 5 puntos. Los puntos deben otorgarse principalmente por si el resumen se ha completado en su totalidad. No se evalúa el contenido.
+
+\section{Mesa de Juego}
+6.1. El campo de sumo es un área de competición circular con un diámetro de 150/120/100 cm (recomendamos un campo de juego de 150 cm para un robot de 25 x 25 cm. \\
+6.2. El tapete se coloca en el suelo o sobre una mesa más grande, asegurando que los robots solo puedan caer unos centímetros al ser empujados fuera del área de sumo sin destruirse. \\
+6.3. El tapete de juego debe estar impreso con un acabado/superposición mate (¡sin reflejos de color!). El material de impresión preferido es una lona de PVC de aproximadamente 510 g/m² (con iluminación frontal). El material del tapete de juego no debe ser demasiado blando (por ejemplo, no debe ser una malla para pancartas). \\
+6.4. La línea negra exterior tiene un ancho de 2,5 cm y marca el límite exterior del campo de sumo. \\
+
+\section{A Configuración y procedimientos del partido}
+7.1. Los robots comienzan en lados opuestos del campo de sumo. Al menos una parte del robot debe estar sobre el anillo exterior negro (vista superior). \\
+7.2. Tras la señal de salida, los robots deben esperar 5 segundos hasta que se les permita moverse. Durante este tiempo, los participantes deben alejarse del campo de sumo y mantener una distancia de 1,5 m del campo de juego. \\
+7.3. Cada combate consta de tres rondas, con una duración máxima de 3 minutos cada una. \\
+7.4. Se otorga \textbf{un punto} si un robot se empuja fuera del campo de sumo o si el oponente se cae. \\
+7.5. Si un robot no puede regresar al campo de sumo después de salir parcialmente, se cuenta hasta 10 y se otorga un punto al robot oponente. \\
+
+7.7. El equipo con la mayor puntuación gana el partido. \\
+7.8. Al finalizar 3 rondas y haber un ganador, se podrá disputar un partido extendido. Alternativamente, los jueces podrán decidir el ganador del partido. \\
+7.9. En caso de incertidumbre en los resultados o problemas, los árbitros podrán solicitar una repetición del partido. \\
+7.10. Entre rondas, un participante podrá solicitar una pausa para reparar el robot en caso de que se dañe. Esta pausa no deberá exceder los 3 minutos. \\
+7.11. Dependiendo del número de participantes, la competición podrá incluir fases de grupos seguidas de un torneo de doble eliminación.
+
+\section{Grupos}
+8.1 Se crearán 2 grupos o la cantidad que sea necesaria para que contengan a todos los equipos, cada equipo estará en un grupo. En cada grupo se enfrentarán todos contra todos.
+
+\end{document}

@@ -33,6 +33,17 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+
+        :root {
+            --udec-blue: #223C6A;
+            --udec-gold: #E69B0A;
+            --ink: #14213d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
         
         body {
             font-family: 'Montserrat', sans-serif;
@@ -40,21 +51,136 @@
             overflow-x: hidden;
         }
 
+        ::selection {
+            background: var(--udec-gold);
+            color: var(--udec-blue);
+        }
+
+        .skip-link {
+            position: fixed;
+            left: 1rem;
+            top: -4rem;
+            z-index: 100;
+            border-radius: 999px;
+            background: var(--udec-gold);
+            color: var(--udec-blue);
+            padding: .7rem 1rem;
+            font-weight: 800;
+            transition: top .2s ease;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--udec-gold);
+            outline-offset: 4px;
+        }
+
         .hero-bg {
-            background: linear-gradient(135deg, rgba(34, 60, 106, 0.95) 0%, rgba(0, 98, 155, 0.85) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            isolation: isolate;
+            background: linear-gradient(135deg, rgba(20, 33, 61, 0.96) 0%, rgba(34, 60, 106, 0.88) 52%, rgba(0, 98, 155, 0.82) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: .32;
+            background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(to bottom, black, transparent 80%);
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            width: 24rem;
+            height: 24rem;
+            right: -8rem;
+            top: 10%;
+            z-index: -1;
+            border-radius: 999px;
+            background: rgba(230, 155, 10, .2);
+            filter: blur(70px);
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, .28);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .1);
+            padding: .55rem .9rem;
+            color: #fff;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .hero-kicker::before {
+            content: '';
+            width: .45rem;
+            height: .45rem;
+            border-radius: 999px;
+            background: var(--udec-gold);
+            box-shadow: 0 0 0 .25rem rgba(230, 155, 10, .2);
+        }
+
         .card-hover {
-            transition: all 0.3s ease;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         
         .card-hover:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-bottom: 4px solid #E69B0A;
+            box-shadow: 0 24px 40px -18px rgba(20, 33, 61, .35);
+            border-color: rgba(230, 155, 10, .7);
+        }
+
+        .card-link {
+            margin-top: auto;
+            padding-top: 1.25rem;
+        }
+
+        .sponsor-card {
+            border: 1px solid #dbe4ef;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 18px 40px -26px rgba(20, 33, 61, .45);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(230, 155, 10, .75);
+            box-shadow: 0 24px 46px -24px rgba(20, 33, 61, .5);
+        }
+
+        .sponsor-logo-frame {
+            display: flex;
+            min-height: 8rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #14213d 0%, #223c6a 100%);
+            padding: 1rem 1.5rem;
+        }
+
+        .sponsor-logo-frame img {
+            max-height: 6.5rem;
+            width: 100%;
+            object-fit: contain;
         }
 
         /* Glowing effect for logos */
@@ -65,22 +191,25 @@
 </head>
 <body class="antialiased text-gray-800">
 
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
     <!-- Navbar -->
-    <nav class="bg-udecblue text-white sticky top-0 z-50 shadow-lg">
+    <nav aria-label="Navegación principal" class="bg-udecblue/95 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg shadow-udecblue/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-16 sm:h-20">
                 <div class="flex items-center space-x-4">
                     <img src="img/campanil-icon.svg" alt="Campanil Icon" class="h-12 w-auto glow-logo">
-                    <span class="font-bold text-xl tracking-wider hidden sm:block">CAMPANIL <span class="text-udecgold">CHALLENGE</span></span>
+                    <span class="font-bold text-base sm:text-xl tracking-[0.18em] hidden sm:block">CAMPANIL <span class="text-udecgold">CHALLENGE</span></span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="hover:text-udecgold transition duration-300">Inicio</a>
-                    <a href="#categorias" class="hover:text-udecgold transition duration-300">Categorías</a>
-                    <a href="#inscripcion" class="hover:text-udecgold transition duration-300">Inscripción</a>
-                    <a href="#directiva" class="hover:text-udecgold transition duration-300">Directiva</a>
+                <div class="hidden md:flex items-center gap-2">
+                    <a href="#inicio" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-white/10 hover:text-udecgold transition duration-300">Inicio</a>
+                    <a href="#categorias" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-white/10 hover:text-udecgold transition duration-300">Categorías</a>
+                    <a href="#inscripcion" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-white/10 hover:text-udecgold transition duration-300">Inscripción</a>
+                    <a href="#auspiciadores" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-white/10 hover:text-udecgold transition duration-300">Auspiciadores</a>
+                    <a href="#directiva" class="rounded-full px-4 py-2 text-sm font-semibold hover:bg-white/10 hover:text-udecgold transition duration-300">Directiva</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-white hover:text-udecgold focus:outline-none">
+                    <button id="mobile-menu-btn" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú" class="rounded-lg p-2 text-white hover:bg-white/10 hover:text-udecgold focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -93,59 +222,61 @@
                 <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-udecgold hover:text-udecblue transition">Inicio</a>
                 <a href="#categorias" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-udecgold hover:text-udecblue transition">Categorías</a>
                 <a href="#inscripcion" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-udecgold hover:text-udecblue transition">Inscripción</a>
+                <a href="#auspiciadores" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-udecgold hover:text-udecblue transition">Auspiciadores</a>
                 <a href="#directiva" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-udecgold hover:text-udecblue transition">Directiva</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero-bg text-white py-32 h-screen flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up" data-aos-duration="1000">
-            <img src="img/campanil-challenge-logo.svg" alt="Logo" class="mx-auto h-48 mb-8 drop-shadow-2xl hover:scale-105 transition duration-500">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
+    <section id="inicio" class="hero-bg relative min-h-[720px] md:min-h-screen text-white py-24 sm:py-32 flex items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-kicker">Robótica · Tecnología · Comunidad</div>
+            <img src="img/campanil-challenge-logo.svg" alt="Campanil Challenge" class="mx-auto h-36 sm:h-48 mb-8 drop-shadow-2xl hover:scale-105 transition duration-500">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-5 tracking-tight leading-[0.98]">
                 CAMPANIL <span class="text-udecgold">CHALLENGE</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 font-light max-w-3xl mx-auto">
+            <p class="text-lg md:text-2xl mb-8 font-light leading-relaxed max-w-3xl mx-auto text-blue-50">
                 El evento de robótica y tecnología más grande del sur de Chile.<br> 
                 Organizado por IEEE RAS y la Universidad de Concepción.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 text-lg font-semibold mb-8">
-                <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-lg border border-white/30 shadow-lg w-full sm:w-auto">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 text-base sm:text-lg font-semibold mb-8">
+                <div class="bg-white/15 backdrop-blur-md px-5 sm:px-6 py-3 rounded-2xl border border-white/30 shadow-lg w-full sm:w-auto">
                     <i class="far fa-calendar-alt text-udecgold mr-2"></i> 4 y 5 de Diciembre, 2026
                 </div>
-                <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-lg border border-white/30 shadow-lg w-full sm:w-auto">
+                <div class="bg-white/15 backdrop-blur-md px-5 sm:px-6 py-3 rounded-2xl border border-white/30 shadow-lg w-full sm:w-auto">
                     <i class="fas fa-map-marker-alt text-udecgold mr-2"></i> Universidad de Concepción
                 </div>
             </div>
 
             <!-- Countdown Timer -->
             <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-6 mb-10 text-center">
-                <div class="bg-udecblue/80 backdrop-blur border border-udecgold rounded-xl p-4 w-24 shadow-lg">
+                <div class="bg-udecblue/80 backdrop-blur border border-udecgold/80 rounded-2xl p-4 w-[5.25rem] shadow-lg shadow-black/20">
                     <span id="days" class="text-3xl md:text-4xl font-extrabold text-udecgold">00</span>
                     <div class="text-xs uppercase tracking-wider mt-1">Días</div>
                 </div>
-                <div class="bg-udecblue/80 backdrop-blur border border-udecgold rounded-xl p-4 w-24 shadow-lg">
+                <div class="bg-udecblue/80 backdrop-blur border border-udecgold/80 rounded-2xl p-4 w-[5.25rem] shadow-lg shadow-black/20">
                     <span id="hours" class="text-3xl md:text-4xl font-extrabold text-udecgold">00</span>
                     <div class="text-xs uppercase tracking-wider mt-1">Horas</div>
                 </div>
-                <div class="bg-udecblue/80 backdrop-blur border border-udecgold rounded-xl p-4 w-24 shadow-lg">
+                <div class="bg-udecblue/80 backdrop-blur border border-udecgold/80 rounded-2xl p-4 w-[5.25rem] shadow-lg shadow-black/20">
                     <span id="minutes" class="text-3xl md:text-4xl font-extrabold text-udecgold">00</span>
                     <div class="text-xs uppercase tracking-wider mt-1">Min</div>
                 </div>
-                <div class="bg-udecblue/80 backdrop-blur border border-udecgold rounded-xl p-4 w-24 shadow-lg">
+                <div class="bg-udecblue/80 backdrop-blur border border-udecgold/80 rounded-2xl p-4 w-[5.25rem] shadow-lg shadow-black/20">
                     <span id="seconds" class="text-3xl md:text-4xl font-extrabold text-udecgold">00</span>
                     <div class="text-xs uppercase tracking-wider mt-1">Seg</div>
                 </div>
             </div>
 
-            <a href="#inscripcion" class="bg-udecgold hover:bg-yellow-500 text-udecblue font-bold py-4 px-10 rounded-full text-xl transition duration-300 transform hover:scale-105 shadow-xl">
-                ¡Inscribe a tu equipo!
+            <a href="#inscripcion" class="inline-flex items-center gap-3 bg-udecgold hover:bg-yellow-500 text-udecblue font-bold py-4 px-8 sm:px-10 rounded-full text-lg sm:text-xl transition duration-300 transform hover:scale-105 shadow-xl shadow-black/20">
+                ¡Inscribe a tu equipo! <i class="fas fa-arrow-right text-sm" aria-hidden="true"></i>
             </a>
         </div>
     </section>
 
     <!-- Logos Section -->
-    <section class="bg-white py-12 shadow-inner">
+    <section class="bg-white py-10 sm:py-12 border-y border-slate-100 shadow-inner">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-sm text-gray-500 uppercase tracking-widest mb-6 font-semibold">Organizado y respaldado por</p>
             <div class="flex justify-center items-center gap-12 flex-wrap">
@@ -154,11 +285,33 @@
                 <!-- UdeC Logo Placeholder (replace with local if available) -->
                 <img src="img/udec_logo.png" alt="Universidad de Concepción" class="h-28 object-contain grayscale hover:grayscale-0 transition duration-500" data-aos="fade-left">
             </div>
+
+            <div id="auspiciadores" class="mt-12 border-t border-slate-100 pt-10" data-aos="fade-up">
+                <div class="mb-7 text-center">
+                    <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-udecgold">Auspicio confirmado</p>
+                    <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-udecblue">Gracias por impulsar la competencia</h2>
+                    <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-600">Marcas que ya confirmaron su apoyo a Campanil Challenge 2026 y hacen posible premiar el talento en robótica y tecnología.</p>
+                </div>
+
+                <div class="mx-auto max-w-3xl">
+                    <article class="sponsor-card grid items-center gap-6 rounded-2xl p-5 sm:grid-cols-[minmax(0,1fr)_1.15fr] sm:p-6">
+                        <a href="https://www.ecrobotics.cl" target="_blank" rel="noopener noreferrer" class="sponsor-logo-frame" aria-label="Visitar el sitio de EC Robotics">
+                            <img src="img/ec-robotics-logo.jpeg" alt="EC Robotics Ltda." loading="lazy">
+                        </a>
+                        <div class="text-center sm:text-left">
+                            <h3 class="text-xl font-extrabold text-udecblue">EC Robotics</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-gray-600">Auspiciador y colaborador oficial: premios para el primer lugar y trofeos y medallas para los tres primeros lugares de cada categoría.</p>
+                            <a href="https://www.ecrobotics.cl" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center text-sm font-bold text-ieee hover:text-udecblue">Conoce EC Robotics <i class="fas fa-arrow-up-right-from-square ml-2 text-xs" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Categorías -->
-    <section id="categorias" class="py-24 bg-gray-50">
+    <main id="contenido">
+    <section id="categorias" class="py-20 sm:py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl font-extrabold text-udecblue mb-4">Categorías de Competencia</h2>
@@ -168,56 +321,56 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Sumo Bot -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute top-0 right-0 bg-udecgold text-white text-xs font-bold px-3 py-1 rounded-bl-lg">100% Autónomo</div>
                     <div class="text-udecblue mb-4">
                         <i class="fas fa-robot text-5xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2">Sumo Bot (Colegios)</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Empuja al oponente fuera del dohyo. Modalidad exclusiva para estudiantes de colegio y robots 100% autónomos.</p>
-                    <a href="docs/bases-sumo-campanil-challenge.pdf" target="_blank" class="text-ieee font-semibold hover:text-udecblue inline-flex items-center">
+                    <h3 class="text-2xl font-bold mb-2">Sumo Bot (OPEN)</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Empuja al oponente fuera del dohyo. Categoría abierta a todo público, con robots 100% autónomos e inscripción gratuita.</p>
+                    <a href="docs/bases-sumo-campanil-challenge.pdf" target="_blank" rel="noopener noreferrer" class="card-link text-ieee font-semibold hover:text-udecblue inline-flex items-center">
                         Ver Bases <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
                 <!-- Battlebots -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-udecred mb-4">
                         <i class="fas fa-hammer text-5xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Battlebots (OPEN)</h3>
                     <p class="text-gray-600 mb-4 text-sm">Combate 1vs1 de robots de 30x30 cm de hasta 5.4 kg con armas mecánicas activas.</p>
-                    <a href="docs/Bases_Battlebots.pdf" target="_blank" class="text-ieee font-semibold hover:text-udecblue inline-flex items-center">
+                    <a href="docs/Bases_Battlebots.pdf" target="_blank" rel="noopener noreferrer" class="card-link text-ieee font-semibold hover:text-udecblue inline-flex items-center">
                         Ver Bases <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
                 <!-- Velocistas -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                     <div class="absolute top-0 right-0 bg-ieee text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Open / Univ</div>
                     <div class="text-udecblue mb-4">
                         <i class="fas fa-tachometer-alt text-5xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Velocistas</h3>
                     <p class="text-gray-600 mb-4 text-sm">Diseña el robot seguidor de línea más rápido y preciso en una pista de alta dificultad.</p>
-                    <div class="flex flex-col space-y-2">
-                        <a href="docs/Bases_Velocistas_Open.pdf" target="_blank" class="text-ieee font-semibold hover:text-udecblue inline-flex items-center">
+                    <div class="flex flex-col space-y-2 mt-auto pt-5">
+                        <a href="docs/Bases_Velocistas_Open.pdf" target="_blank" rel="noopener noreferrer" class="text-ieee font-semibold hover:text-udecblue inline-flex items-center">
                             Bases Open <i class="fas fa-external-link-alt ml-2 text-sm"></i>
                         </a>
-                        <a href="docs/Bases_Velocistas_Universitarios.pdf" target="_blank" class="text-ieee font-semibold hover:text-udecblue inline-flex items-center">
+                        <a href="docs/Bases_Velocistas_Universitarios.pdf" target="_blank" rel="noopener noreferrer" class="text-ieee font-semibold hover:text-udecblue inline-flex items-center">
                             Bases Universitarios <i class="fas fa-external-link-alt ml-2 text-sm"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Programación -->
-                <div class="bg-white rounded-xl shadow-lg p-8 card-hover" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover" data-aos="fade-up" data-aos-delay="400">
                     <div class="text-green-600 mb-4">
                         <i class="fas fa-laptop-code text-5xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-2">Prog. Competitiva</h3>
                     <p class="text-gray-600 mb-4 text-sm">Torneo de algoritmos de 4 horas usando Juez Virtual. C++, Java, Python 3.</p>
-                    <a href="docs/Bases_Programacion.pdf" target="_blank" class="text-ieee font-semibold hover:text-udecblue inline-flex items-center">
+                    <a href="docs/Bases_Programacion.pdf" target="_blank" rel="noopener noreferrer" class="card-link text-ieee font-semibold hover:text-udecblue inline-flex items-center">
                         Ver Bases <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -260,7 +413,7 @@
                 </div>
                 
                 <div data-aos="zoom-in">
-                    <div class="bg-white text-gray-800 rounded-2xl shadow-2xl p-8 border-t-8 border-udecgold transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-white text-gray-800 rounded-2xl shadow-2xl p-8 border-t-8 border-udecgold transform hover:-translate-y-2 transition duration-300 lg:sticky lg:top-28">
                         <div class="text-center mb-8">
                             <h3 class="text-xl font-bold uppercase tracking-wider text-udecblue">Inscripción de equipos</h3>
                             <div class="mt-4 flex justify-center items-baseline text-4xl font-extrabold text-udecgold">
@@ -303,7 +456,7 @@
                     <h4 class="text-xl font-bold text-gray-800">Cristian Saavedra</h4>
                     <p class="text-udecblue font-medium mb-3">Presidente</p>
                     <div class="flex justify-center space-x-3 text-gray-400">
-                        <a href="https://www.linkedin.com/in/cristian-saavedra-vasquez/" target="_blank" class="hover:text-ieee"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="https://www.linkedin.com/in/cristian-saavedra-vasquez/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Cristian Saavedra" class="hover:text-ieee"><i class="fab fa-linkedin text-xl" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
@@ -315,7 +468,7 @@
                     <h4 class="text-xl font-bold text-gray-800">Gonzalo Quilodrán</h4>
                     <p class="text-udecblue font-medium mb-3">Vicepresidente</p>
                     <div class="flex justify-center space-x-3 text-gray-400">
-                        <a href="https://www.linkedin.com/in/gonzalo-quilodr%C3%A1n-neira-49142b309/" target="_blank" class="hover:text-ieee"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="https://www.linkedin.com/in/gonzalo-quilodr%C3%A1n-neira-49142b309/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Gonzalo Quilodrán" class="hover:text-ieee"><i class="fab fa-linkedin text-xl" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
@@ -354,7 +507,7 @@
                     <h4 class="text-xl font-bold text-gray-800">Valentina Serón</h4>
                     <p class="text-udecblue font-medium mb-3">WebMaster</p>
                     <div class="flex justify-center space-x-3 text-gray-400">
-                        <a href="https://www.linkedin.com/in/valentina-ser%C3%B3n/" target="_blank" class="hover:text-ieee"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="https://www.linkedin.com/in/valentina-ser%C3%B3n/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Valentina Serón" class="hover:text-ieee"><i class="fab fa-linkedin text-xl" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
@@ -378,15 +531,16 @@
                     <h4 class="text-xl font-bold text-gray-800">Prof. Julio Godoy</h4>
                     <p class="text-udecblue font-medium mb-3">Faculty Advisor</p>
                     <div class="flex justify-center space-x-3 text-gray-400">
-                        <a href="https://www.linkedin.com/in/julio-godoy-del-campo-13a79123/" target="_blank" class="hover:text-ieee"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="https://www.linkedin.com/in/julio-godoy-del-campo-13a79123/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Julio Godoy" class="hover:text-ieee"><i class="fab fa-linkedin text-xl" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 text-white py-12" role="contentinfo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
                 <img src="img/campanil-challenge-logo.svg" alt="Campanil Logo" class="h-16 mb-6">
@@ -398,6 +552,7 @@
                     <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
                     <li><a href="#categorias" class="hover:text-white transition">Bases de Competencia</a></li>
                     <li><a href="#inscripcion" class="hover:text-white transition">Inscripciones</a></li>
+                    <li><a href="#auspiciadores" class="hover:text-white transition">Auspiciadores</a></li>
                     <li><a href="#directiva" class="hover:text-white transition">Contacto</a></li>
                 </ul>
             </div>
@@ -408,9 +563,7 @@
                     <li><i class="fas fa-envelope mr-2"></i> ras@udec.cl</li>
                 </ul>
                 <div class="flex space-x-4 mt-6">
-                    <a href="https://www.instagram.com/ras.udec/" target="_blank" class="bg-gray-800 p-3 rounded-full hover:bg-udecblue transition"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-udecblue transition"><i class="fab fa-linkedin-in text-xl"></i></a>
-                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-udecblue transition"><i class="fab fa-discord text-xl"></i></a>
+                    <a href="https://www.instagram.com/ras.udec/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de IEEE RAS UdeC" class="bg-gray-800 p-3 rounded-full hover:bg-udecblue transition"><i class="fab fa-instagram text-xl" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -425,11 +578,12 @@
         // Init AOS
         AOS.init({
             once: true,
-            offset: 100
+            offset: 100,
+            disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
         });
 
         // Countdown Timer Logic
-        const countDownDate = new Date("Dec 4, 2026 09:00:00").getTime();
+        const countDownDate = new Date("2026-12-04T09:00:00-03:00").getTime();
 
         const x = setInterval(function() {
             const now = new Date().getTime();
@@ -457,12 +611,17 @@
         const links = document.querySelectorAll('.mobile-link');
 
         btn.addEventListener('click', () => {
+            const isOpen = !menu.classList.contains('hidden');
             menu.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', String(!isOpen));
+            btn.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
         });
 
         links.forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.setAttribute('aria-label', 'Abrir menú');
             });
         });
     </script>
